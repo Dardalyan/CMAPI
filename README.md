@@ -1,0 +1,1 @@
+Certification-Management-API is a FastAPI-based project that uses Firestore. It is designed for managing issued certifications such as ISO, CE, and RoHS.
