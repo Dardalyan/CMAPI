@@ -17,6 +17,15 @@ class AuthController:
 
     async def login(self, request: Request):
 
+        """
+        Authenticates a user based on the provided username and password.
+
+        The JSON body of the request must contain the following fields:
+            - 'username': The username of the user attempting to log in.
+            - 'password': The password associated with the username.
+        """
+
+
         try:
             body = await request.json()
             username = body.get("username")

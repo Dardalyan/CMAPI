@@ -21,10 +21,7 @@ app.include_router(authController.router)
 # Middleware Settings
 origins = [
     settings.cors_url_origin_1,
-    settings.cors_url_origin_2,
-    settings.cors_url_origin_3,
-    settings.cors_url_origin_4,
-    settings.cors_url_origin_5
+    settings.cors_url_origin_2
 ]
 app.add_middleware(TokenMiddleware)
 

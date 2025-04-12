@@ -18,6 +18,11 @@ class MailController:
         self.SENDER_PASSWORD = settings.mail_sender_password
 
     async def send_mail(self, request: Request):
+        """
+        Sends an email to the target address specified in the settings, using the JSON body from the provided request object.
+
+        The JSON body must contain the necessary information which are 'subject' and 'message'.
+        """
 
         body = await request.json()
 

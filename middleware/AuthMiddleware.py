@@ -16,6 +16,10 @@ class TokenMiddleware(BaseHTTPMiddleware):
 
     async def dispatch(self, request: Request, call_next):
 
+        """
+        Intercepts the request and checks the 'Authorization' header for a valid JWT token.
+        """
+
         if request.url.path in [settings.get_all_docs_url, settings.delete_doc_url, settings.add_doc_url]:
             service = TokenService()
             auth_header = request.headers.get("Authorization")

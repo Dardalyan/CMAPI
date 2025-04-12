@@ -9,6 +9,11 @@ class User:
         self.__password = self.__encryptPassword(password)
 
     def __encryptPassword(self, password: str) -> str:
+        """
+        Encrypts the given password.
+        :param password: password of the user.
+        :return:  encrypted password
+        """
         salt = bcrypt.gensalt()
         hashed = bcrypt.hashpw(password.encode(), salt)
         return hashed.decode()

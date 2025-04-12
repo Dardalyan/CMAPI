@@ -35,8 +35,5 @@ class Settings:
 
         self.cors_url_origin_1 = os.getenv("CORS_ORIGIN_URL_1")
         self.cors_url_origin_2 = os.getenv("CORS_ORIGIN_URL_2")
-        self.cors_url_origin_3 = os.getenv("CORS_ORIGIN_URL_3")
-        self.cors_url_origin_4 = os.getenv("CORS_ORIGIN_URL_4")
-        self.cors_url_origin_5 = os.getenv("CORS_ORIGIN_URL_5")
 
 settings = Settings()

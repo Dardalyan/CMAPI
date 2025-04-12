@@ -22,6 +22,18 @@ class BaseDocument:
 
     @classmethod
     def docCodeList(cls):
+        """
+        Returns a dictionary containing the document codes and their corresponding names.
+
+        The dictionary includes the following categories:
+        - ISO
+        - CE
+        - RoHS
+
+        :return: A dictionary with document categories as keys, and their respective codes and names as values.
+        :rtype: dict
+        """
+
         return {
             "iso": [
                 ("9001", "QMS"),
@@ -74,6 +86,12 @@ class Document(BaseDocument):
     def getEndDate(self): return self.__endDate
 
     def getDict(self):
+        """
+        Returns a dictionary containing detailed information about the document.
+
+        :return: A dictionary with key-value pairs representing the document's attributes.
+        :rtype: dict
+        """
         return {
             "FirmName": self.getFirmName(),
             "CountryCode": self.getCountryCode(),

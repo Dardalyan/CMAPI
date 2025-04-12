@@ -20,6 +20,10 @@ class DocumentController:
         self.router.add_api_route(settings.get_doc_url, self.getDocument, methods=["POST"])
 
     async def getDocument(self, request: Request):
+        """
+        Retrieves a document from Firestore using the provided document code.
+        The JSON body must contain the 'docCode' which uniquely identifies the document to be retrieved from Firestore.
+        """
 
         try:
 
@@ -38,6 +42,10 @@ class DocumentController:
             return JSONResponse({"alert": "Error has occurred !"}, status_code=400)
 
     async def getAllDocuments(self):
+        """
+        Retrieves all documents from Firestore.
+        """
+
         try:
             docs = self.service.getAllDocuments()
 
@@ -51,6 +59,16 @@ class DocumentController:
             return JSONResponse({"alert": "Error has occurred !"}, status_code=400)
 
     async def addDocument(self, request: Request):
+        """
+        Adds a new document to the database.
+
+        The JSON body of the request must contain the following fields:
+            - 'code': The document code.
+            - 'firmName': The name of the firm associated with the document.
+            - 'startDate': The start date of the document in 'YYYY-MM-DD' format.
+            - 'endDate': The end date of the document in 'YYYY-MM-DD' format.
+            - 'docNumber': The document number.
+        """
 
         try:
 
@@ -83,6 +101,13 @@ class DocumentController:
             return JSONResponse({"alert": "A new document cannot be added !"}, status_code=400)
 
     async def deleteDocument(self, request: Request):
+
+        """
+        Deletes a document from Firestore based on the provided document code.
+
+        The JSON body of the request must contain the following field:
+            - 'docCode': The unique code identifying the document to be deleted.
+        """
 
         try:
 
